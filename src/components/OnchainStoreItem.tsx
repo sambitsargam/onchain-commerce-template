@@ -4,19 +4,23 @@ import QuantityInput from './QuantityInput';
 
 export default function OnchainStoreItem({ id, name, price, image }: Product) {
   return (
-    <div className="store-item mx-auto flex w-full flex-col p-4 sm:mx-0 lg:p-6">
-      <div className="mb-1 flex items-start justify-between">
-        <h2 className="font-regular text-xs">{name}</h2>
+    <div className="flex w-full flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md sm:p-5">
+      <div className="mb-2 flex items-start justify-between">
+        <h2 className="text-sm font-medium text-gray-800">{name}</h2>
       </div>
-      <div className="flex grow justify-center md:relative">
+      <div className="flex grow items-center justify-center overflow-hidden rounded-md bg-gray-50 p-4 md:relative">
         <Image
           src={image}
-          alt="123"
-          className="mx-auto object-contain max-sm:max-w-[300px] md:absolute md:h-full md:w-auto"
+          alt={name}
+          className="object-contain max-h-64 w-auto"
+          width={300}
+          height={300}
         />
       </div>
-      <div className="flex items-center justify-between">
-        <p className="font-regular text-xs">{price.toFixed(2)} USDC</p>
+      <div className="mt-3 flex items-center justify-between">
+        <p className="text-sm font-semibold text-gray-900">
+          {price.toFixed(2)} USDC
+        </p>
         <QuantityInput productId={id} />
       </div>
     </div>
