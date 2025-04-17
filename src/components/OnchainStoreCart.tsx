@@ -25,14 +25,10 @@ export default function OnchainStoreCart({
     );
   }, [products, quantities]);
 
-  // TODO: comment back in to enable checkout flow
-
   // const { createCharge } = useCreateCharge();
-
   // const handleStatusChange = useCallback((status: LifecycleStatus) => {
   //   console.log('onStatus', status);
   // }, []);
-
   // const chargeHandler = useCallback(() => {
   //   const description = Object.keys(quantities)
   //     .map((productId) => {
@@ -50,7 +46,6 @@ export default function OnchainStoreCart({
   //   };
   //   return createCharge(chargeDetails);
   // }, [createCharge, quantities, totalSum]);
-
   // const key = useMemo(() => {
   //   if (!quantities) return '';
   //   const productIds = Object.keys(quantities);
@@ -67,34 +62,29 @@ export default function OnchainStoreCart({
   }, [setShowModal]);
 
   return (
-    <div className="-mx-[50vw] fixed right-1/2 bottom-0 left-1/2 w-screen border-gray-200 border-t bg-[white]">
+    <div className="fixed bottom-4 left-1/2 z-40 w-[95%] -translate-x-1/2 rounded-xl border border-gray-200 bg-white px-4 py-4 shadow-md sm:px-6">
       {showModal && <OnchainStoreModal closeModal={closeModal} />}
-      <div className="mx-auto max-w-5xl ">
-        <div className="flex flex-col items-start justify-between py-4 md:flex-row md:items-center">
-          <span className="mb-2 hidden px-4 text-xs sm:flex md:mb-0 md:w-1/3 lg:px-6">
-            Built with OnchainKit
-          </span>
-          <div className="flex w-full grow flex-col items-center justify-between gap-2 px-4 sm:flex-row sm:gap-0 md:w-auto lg:px-6">
-            <h2 className="font-bold text-lg md:w-11/12 ">
-              TOTAL {totalSum.toFixed(2)} USDC
-            </h2>
-            <div className="w-64">
-              {/* TODO: comment back in to enable checkout flow */}
-              {/* <Checkout
-                key={key}
-                onStatus={handleStatusChange}
-                chargeHandler={chargeHandler}
-              >
-                <CheckoutButton
-                  coinbaseBranded={true}
-                  text="Pay with Crypto"
-                  disabled={!totalSum}
-                />
-              </Checkout> */}
-
-              {/* TODO: remove, for demo purposes only */}
-              <MockCheckoutButton onClick={openModal} />
-            </div>
+      <div className="mx-auto flex max-w-5xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <span className="hidden text-xs text-gray-500 md:block">
+          Built with OnchainKit
+        </span>
+        <div className="flex w-full flex-col items-center justify-between gap-3 sm:flex-row sm:gap-0">
+          <h2 className="text-base font-semibold text-gray-800">
+            TOTAL {totalSum.toFixed(2)} USDC
+          </h2>
+          <div className="w-full sm:w-64">
+            {/* <Checkout
+              key={key}
+              onStatus={handleStatusChange}
+              chargeHandler={chargeHandler}
+            >
+              <CheckoutButton
+                coinbaseBranded={true}
+                text="Pay with Crypto"
+                disabled={!totalSum}
+              />
+            </Checkout> */}
+            <MockCheckoutButton onClick={openModal} />
           </div>
         </div>
       </div>
