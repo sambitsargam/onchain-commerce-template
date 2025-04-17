@@ -11,11 +11,11 @@ export default function OnchainStore() {
 
   return (
     <OnchainStoreProvider>
-      <div className="relative flex h-full max-h-screen max-w-full flex-col font-sansMono">
+      <div className="relative min-h-screen w-full bg-gray-50 font-sansMono">
         <Banner />
         <Navbar />
-        <main className="mx-auto flex max-w-5xl grow flex-col pt-[5.5rem] pb-10">
-          <div className="flex grow flex-col pb-10 md:flex-row">
+        <main className="mx-auto flex max-w-6xl flex-col px-4 pt-24 pb-16 sm:px-6">
+          <div className="flex flex-col gap-8 md:flex-row">
             <OnchainStoreSummary />
             <OnchainStoreItems />
           </div>
